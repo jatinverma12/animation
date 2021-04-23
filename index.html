@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/c98256b770.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <style>
+        body {
+  padding: 2em;
+}
+#container {
+  width: 560px;
+  height: 560px;
+  margin-left:30%;
+  margin-top: 55%;
+  position: relative;
+  border-radius: 50%;
+}
+.item {
+  width: 100px;
+  height: 100px;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 50%;
+  position: absolute;
+  animation: spin 1s linear reverse;
+}
+.i1{
+    background: blueviolet;
+}
+.i2{
+    background:lightskyblue;
+}
+.i3{
+    background: #9ad62a;
+}
+.i4{
+    background: magenta;
+}
+.i5{
+    background: peru;
+}
+.i6{
+    background: orangered;
+}
+.i7{
+    background: orchid;
+}
+.i8{
+    background: yellow;
+}
+.i9{
+    background: tomato;
+}
+
+
+@keyframes spin {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
+.large {
+  margin: 0;
+  padding: 0;
+  height: 800px;
+  width: 1000px;
+  position: absolute;
+  top: -70%;
+  left: 38%;
+  border-radius: 0 0 100% 100%;
+  background: #f88888;
+  transform: rotate(9deg);
+  overflow: hidden;
+}
+
+
+.middle {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  left: 68%;
+  top: 35%;
+  background-color: #ddd2fc;
+  box-shadow: 0px 6px 4px rgba(205, 188, 251, 0.68);
+  border-radius: 50%;
+}
+
+.buttoncircle {
+  width: 200px;
+  background-color: rgba(248, 136, 136, 0.68);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+}
+
+.c1 {
+  top: 60%;
+  left: 91%;
+}
+.c2 {
+  top: 60%;
+  left: 60%;
+}
+
+.dashedcircle {
+  position: absolute;
+  width: 520px;
+  height: 560px;
+  left: 31.5%;
+  top: 68%;
+  transform: rotate(45deg);
+  border: 2px dashed #000000;
+  border-radius: 50%;
+}
+
+body{
+    overflow-x: hidden;
+}
+    
+</style>
+
+
+
+    <div class='large'>
+        <div class='dashedcircle'></div>
+        <div id="container">
+            <div class="item i1"></div>
+            <div class="item i2"></div>
+            <div class="item i3"></div>
+            <div class="item i4"></div>
+            <div class="item i5"></div>
+            <div class="item i6"></div>
+            <div class="item i7"></div>
+            <div class="item i8"></div>
+            <div class="item i9"></div>
+          </div>
+    </div>
+    <div class="middle"></div>
+    <div class="buttoncircle c1">
+        <i style="padding-top:8px;padding-left: 8px;;" class=" icon fas fa-arrow-down"></i>
+    </div>
+        
+    <div class="buttoncircle c2">
+        <i style="padding-top:8px;padding-left: 8px;;" class=" icon fas fa-arrow-down"></i>
+    </div>
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+<script src='./index.js'></script>
+<script>
+    
+    var radius = 270; // adjust to move out items in and out 
+    var fields = $('.item'),
+    container = $('#container'),
+    width = container.width(),
+    height = container.height();
+    var angle = 0,
+    step = (2 * Math.PI) / fields.length;
+    fields.each(function() {
+    var x = Math.round(width / 2 + radius * Math.cos(angle) - $(this).width() / 2);
+    var y = Math.round(height / 2 + radius * Math.sin(angle) - $(this).height() / 2);
+    if (window.console) {
+        console.log($(this).text(), x, y);
+    }
+    $(this).css({
+        left: x + 'px',
+        top: y + 'px'
+    });
+    angle += step;
+    });
+    
+    
+    
+
+    
+</script> 
+</body>
+</html>
